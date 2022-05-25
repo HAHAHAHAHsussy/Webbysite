@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Expires" content="Mon, 17 Jun 2019 21:30:00 GMT">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="viewport" content="width=device-width">
+<title>ｲﾏﾔﾙｸ</title>
+<!--
+<link rel="stylesheet" type="text/css" href=".css">
+-->
+<style type="text/css">
+#body{
+    background-color: #000000;
+    margin: 0px;
+    padding: 0px;
+    line-height: 1em;
+}
+#d1{
+    width:970px;
+    height:580px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    position: relative;
+}
+#map{
+    width:64px;
+    height:142px;
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+#ichi{width:12px;height:12px;position:absolute;right:39px;bottom:13px;}
+
+#y1{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;}
+#y2{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y3{width:55px;height:580px;position:absolute;right:0px;top:0px;opacity:0.0;display:none;}
+#y4{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y5{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y6{width:55px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y7{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y8{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y9{width:55px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y10{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y11{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y12{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y13{width:55px;height:580px;position:absolute;right:0px;top:0px;opacity:0.0;display:none;}
+#y14{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y15{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y16{width:55px;height:580px;position:absolute;right:0px;top:0px;opacity:0.0;display:none;}
+#y17{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y18{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y19{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y20{width:55px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y21{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y22{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y23{width:55px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y24{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y25{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#y26{width:55px;height:580px;position:absolute;right:0px;top:0px;opacity:0.0;display:none;}
+#yaminoclick{
+    width:970px;height:580px;
+    position:absolute;left:0px;top:0px;
+    background-color:#ff0000;opacity:0.0;display:none;    
+}
+#g1{width:349px;height:526px;position:absolute;left:320px;bottom:0px;display:none;}
+#g2{width:356px;height:528px;position:absolute;left:320px;bottom:0px;display:none;}
+#g3{width:365px;height:530px;position:absolute;left:320px;bottom:0px;display:none;}
+#g4{width:373px;height:554px;position:absolute;left:320px;bottom:0px;display:none;}
+#g5{width:381px;height:575px;position:absolute;left:320px;bottom:0px;display:none;}
+#g6{width:389px;height:578px;position:absolute;left:320px;bottom:0px;display:none;}
+#g7{width:397px;height:580px;position:absolute;left:320px;bottom:0px;display:none;}
+#g8{width:405px;height:580px;position:absolute;left:320px;bottom:0px;display:none;}
+#g9{width:413px;height:580px;position:absolute;left:320px;bottom:0px;display:none;}
+#g10{width:421px;height:580px;position:absolute;left:320px;bottom:0px;display:none;}
+#g11{width:429px;height:580px;position:absolute;left:320px;bottom:0px;display:none;}
+#g12{width:437px;height:580px;position:absolute;left:320px;bottom:0px;display:none;}
+#g13{width:445px;height:580px;position:absolute;left:320px;bottom:0px;display:none;}
+#g14{width:970px;height:580px;position:absolute;left:0px;bottom:0px;display:none;}
+#g15{width:770px;height:580px;position:absolute;left:0px;bottom:0px;display:none;}
+#g16{width:550px;height:580px;position:absolute;left:206px;bottom:0px;display:none;}
+#die1{width:258px;height:580px;position:absolute;left:370px;bottom:0px;display:none;}
+#die2{width:126px;height:580px;position:absolute;left:415px;bottom:0px;display:none;}
+#ghitarea{
+    width:442px;height:580px;
+    position:absolute;left:317px;top:0px;
+    background-color:#00ff00;opacity:0.0;display:none;    
+}
+#e1{width:315px;height:500px;position:absolute;left:327px;top:40px;display:none;}
+#e2{width:315px;height:500px;position:absolute;left:327px;top:40px;display:none;}
+#e3{width:315px;height:500px;position:absolute;left:327px;top:40px;display:none;}
+#erishitarea{
+    width:315px;height:500px;
+    position:absolute;left:327px;top:40px;
+    background-color:#00ff00;opacity:0.0;display:none;    
+}
+#gameover{width:970px;height:580px;position:absolute;left:0px;top:0px;opacity:0.0;display:none;}
+#doorbure{width:340px;height:580px;position:absolute;right:0px;bottom:0px;display:none;}
+#nextdoor{width:340px;height:560px;position:absolute;left:315px;bottom:0px;display:none;}
+/*&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#12525;&#12540;&#12489;&#30011;&#38754;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;*/
+#loadback{
+    width:970px;height:580px;
+    position:absolute;left:0px;top:0px;
+    background-color:#000000;
+}
+#nowloading{
+    width:231px;height:231px;
+    position:absolute;left:0px;right:0px;top:0px;bottom:0px;margin:auto;
+    user-select:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;
+}
+</style>
+
+</head>
+<body id="body">
+<!--&#21177;&#26524;&#38899;&#12398;&#20108;&#27425;&#37197;&#24067;&#12539;&#28961;&#26029;&#21033;&#29992;&#31105;&#27490;&#12290;&#21508;&#21177;&#26524;&#38899;&#32032;&#26448;&#12398;&#12469;&#12452;&#12488;&#27096;&#12408;&#12398;&#12522;&#12531;&#12463;&#12399;&#12488;&#12483;&#12503;&#12506;&#12540;&#12472;&#12395;&#12372;&#12374;&#12356;&#12414;&#12377;&#12290;-->
+<!--Secondary distribution of sound effects &middot; Unauthorized use prohibited. The link to the site of each sound effect material is on the top page.-->
+<!--&#38899;&#22768;&#12398;&#20108;&#27425;&#37197;&#24067;&#12539;&#28961;&#26029;&#21033;&#29992;&#31105;&#27490;&#12290;-->
+<!--Secondary distribution of voice / unauthorized use prohibited.-->
+
+<audio id="walkse" preload="auto">
+<source src="pse/walk.wav" type="audio/wav">
+<source src="pse/walk.mp3" type="audio/mp3">
+</source></source></audio>
+
+<audio id="magaruse" preload="auto">
+<source src="pse/walksingle.wav" type="audio/wav">
+<source src="pse/walksingle.mp3" type="audio/mp3">
+</source></source></audio>
+
+<audio id="yamigkoe" preload="auto">
+<source src="pse/topdyamig.wav" type="audio/wav">
+<source src="pse/topdyamig.mp3" type="audio/mp3">
+</source></source></audio>
+
+<audio id="shotse" preload="auto">
+<source src="pse/bomber.wav" type="audio/wav">
+<source src="pse/bomber.mp3" type="audio/mp3">
+</source></source></audio>
+
+<audio id="oowaraikoe" preload="auto">
+<source src="pse/oowarai.wav" type="audio/wav">
+<source src="pse/oowarai.mp3" type="audio/mp3">
+</source></source></audio>
+
+<div id="d1">
+<img src="images/pimg-yamiyajitop.gif" id="y1"><!--1.&uarr;-->
+<img src="images/pimg-yamiyajitop.gif" id="y2"><!--2.&uarr;-->
+<img src="images/pimg-yamiyajiright.gif" id="y3"><!--3.&rArr;-->
+<img src="images/pimg-yamiyajitop.gif" id="y4"><!--4.&uarr;-->
+<img src="images/pimg-yamiyajitop.gif" id="y5"><!--5.&uarr;-->
+<img src="images/pimg-yamiyajileft.gif" id="y6"><!--6.&#12304;&larr;&#12305;-->
+<img src="images/pimg-yamiyajitop.gif" id="y7"><!--7.&uarr;-->
+<img src="images/pimg-yamiyajitop.gif" id="y8"><!--8.&uarr;-->
+<img src="images/pimg-yamiyajileft.gif" id="y9"><!--9.&#12304;&larr;&#12305;-->
+<img src="images/pimg-yamiyajitop.gif" id="y10"><!--10.&uarr;-->
+<img src="images/pimg-yamiyajitop.gif" id="y11"><!--11.&uarr;-->
+<img src="images/pimg-yamiyajitop.gif" id="y12"><!--12.&uarr;-->
+<img src="images/pimg-yamiyajiright.gif" id="y13"><!--13.&rArr;-->
+<img src="images/pimg-yamiyajitop.gif" id="y14"><!--14.&uarr;-->
+<img src="images/pimg-yamiyajitop.gif" id="y15"><!--15.&uarr;-->
+<img src="images/pimg-yamiyajiright.gif" id="y16"><!--16.&rArr;-->
+<img src="images/pimg-yamiyajitop.gif" id="y17"><!--17.&uarr;-->
+<img src="images/pimg-yamiyajitop.gif" id="y18"><!--18.&uarr;-->
+<img src="images/pimg-yamiyajitop.gif" id="y19"><!--19.&uarr;-->
+<img src="images/pimg-yamiyajileft.gif" id="y20"><!--20.&#12304;&larr;&#12305;-->
+<img src="images/pimg-yamiyajitop.gif" id="y21"><!--21.&uarr;-->
+<img src="images/pimg-yamiyajitop.gif" id="y22"><!--22.&uarr;-->
+<img src="images/pimg-yamiyajileft.gif" id="y23"><!--23.&#12304;&larr;&#12305;-->
+<img src="images/pimg-yamiyajitop.gif" id="y24"><!--24.&uarr;-->
+<img src="images/pimg-yamiyajitop.gif" id="y25"><!--25.&uarr;-->
+<img src="images/pimg-yamiyajiright.gif" id="y26"><!--26.&rArr;-->
+<img src="images/pimg-yami1.png" id="g1">
+<img src="images/pimg-yami2.png" id="g2">
+<img src="images/pimg-yami3.png" id="g3">
+<img src="images/pimg-yami4.png" id="g4">
+<img src="images/pimg-yami5.png" id="g5">
+<img src="images/pimg-yami6.png" id="g6">
+<img src="images/pimg-yami7.png" id="g7">
+<img src="images/pimg-yami8.png" id="g8">
+<img src="images/pimg-yami9.png" id="g9">
+<img src="images/pimg-yami10.png" id="g10">
+<img src="images/pimg-yami11.png" id="g11">
+<img src="images/pimg-yami12.png" id="g12">
+<img src="images/pimg-yami13.png" id="g13">
+<img src="images/pimg-yami14.png" id="g14">
+<img src="images/pimg-yami15.png" id="g15">
+<img src="images/pimg-yami16.png" id="g16">
+<img src="images/pimg-yamidie1.png" id="die1">
+<img src="images/pimg-yamidie2.png" id="die2">
+<img src="images/pimg-yamieris1.jpg" id="e1">
+<img src="images/pimg-yamieris2.jpg" id="e2">
+<img src="images/pimg-yamieris3.jpg" id="e3">
+<div id="yaminoclick"></div>
+<div id="ghitarea"></div>
+<div id="erishitarea"></div>
+<img src="images/pimg-yamimap.gif" id="map">
+<img src="images/pimg-yamiichi.png" id="ichi">
+<img src="images/pimg-gameover.jpg" id="gameover">
+<img src="images/pimg-yamidoorbure.jpg" id="doorbure">
+<img src="images/pimg-yamidoor.jpg" id="nextdoor">
+<!--&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#12525;&#12540;&#12489;&#30011;&#38754;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;-->
+<div id="loadback"></div>
+<img src="images/pimg-nowloading.gif" id="nowloading">
+</div>
+<script>
+/*&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#21491;&#12463;&#12522;&#12483;&#12463;&#65286;&#30011;&#20687;&#12489;&#12525;&#12483;&#12503;&#31105;&#27490;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;*/
+document.oncontextmenu = function(){return false;}
+document.onselectstart = function(){return false;}
+document.onmousedown = function(){return false;}
+/*&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#12525;&#12540;&#12489;&#30011;&#38754;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;*/
+let loadback = document.getElementById('loadback');
+let nowloading = document.getElementById('nowloading');
+/*&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#35501;&#12415;&#36796;&#12415;&#12364;&#23436;&#20102;&#12375;&#12383;&#12425;&#12525;&#12540;&#12489;&#30011;&#38754;&#12434;&#38750;&#34920;&#31034;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;&#9733;*/
+window.addEventListener('load',function(){
+    nowloading.style.display = 'none';
+    loadback.style.display = 'none';
+});
+let body = document.getElementById('body');
+let d1 = document.getElementById('d1');
+let map = document.getElementById('map');
+let ichi = document.getElementById('ichi');
+let y1 = document.getElementById('y1');
+let y2 = document.getElementById('y2');
+let y3 = document.getElementById('y3');
+let y4 = document.getElementById('y4');
+let y5 = document.getElementById('y5');
+let y6 = document.getElementById('y6');
+let y7 = document.getElementById('y7');
+let y8 = document.getElementById('y8');
+let y9 = document.getElementById('y9');
+let y10 = document.getElementById('y10');
+let y11 = document.getElementById('y11');
+let y12 = document.getElementById('y12');
+let y13 = document.getElementById('y13');
+let y14 = document.getElementById('y14');
+let y15 = document.getElementById('y15');
+let y16 = document.getElementById('y16');
+let y17 = document.getElementById('y17');
+let y18 = document.getElementById('y18');
+let y19 = document.getElementById('y19');
+let y20 = document.getElementById('y20');
+let y21 = document.getElementById('y21');
+let y22 = document.getElementById('y22');
+let y23 = document.getElementById('y23');
+let y24 = document.getElementById('y24');
+let y25 = document.getElementById('y25');
+let y26 = document.getElementById('y26');
+let yaminoclick = document.getElementById('yaminoclick');
+let g1 = document.getElementById('g1');
+let g2 = document.getElementById('g2');
+let g3 = document.getElementById('g3');
+let g4 = document.getElementById('g4');
+let g5 = document.getElementById('g5');
+let g6 = document.getElementById('g6');
+let g7 = document.getElementById('g7');
+let g8 = document.getElementById('g8');
+let g9 = document.getElementById('g9');
+let g10 = document.getElementById('g10');
+let g11 = document.getElementById('g11');
+let g12 = document.getElementById('g12');
+let g13 = document.getElementById('g13');
+let g14 = document.getElementById('g14');
+let g15 = document.getElementById('g15');
+let g16 = document.getElementById('g16');
+let die1 = document.getElementById('die1');
+let die2 = document.getElementById('die2');
+let ghitarea = document.getElementById('ghitarea');
+let e1 = document.getElementById('e1');
+let e2 = document.getElementById('e2');
+let e3 = document.getElementById('e3');
+let erishitarea = document.getElementById('erishitarea');
+let doorbure = document.getElementById('doorbure');
+let nextdoor = document.getElementById('nextdoor');
+let sewalk = document.getElementById('walkse');
+let koeyamig = document.getElementById('yamigkoe');
+let seshot = document.getElementById('shotse');
+let semagaru = document.getElementById('magaruse');
+let koeoowarai = document.getElementById('oowaraikoe');
+let timerId0 = '';
+let com = 0;
+let fps0 = 0;
+let fpsd = 0;
+let fps1 = 0;
+let fps2 = 0;
+let fps3 = 0;
+let fps4 = 0;
+let fps5 = 0;
+let fps6 = 0;
+let fps7 = 0;
+let fps8 = 0;
+let fps9 = 0;
+let fps10 = 0;
+let fps11 = 0;
+let fps12 = 0;
+let fps13 = 0;
+let fps14 = 0;
+let fps15 = 0;
+let fps16 = 0;
+let fps17 = 0;
+let fps18 = 0;
+let fps19 = 0;
+let fps20 = 0;
+let fps21 = 0;
+let fps22 = 0;
+let fps23 = 0;
+let fps24 = 0;
+let fps25 = 0;
+let fps26 = 0;
+let fpse = 0;
+let fpsed = 0;
+let com2 = 0;
+let timerEris = '';
+
+//&#12456;&#12522;&#12473;&#20986;&#29694;
+function yamieAppear(){
+    fpse = 0;
+    com2 = Math.floor(Math.random()*2)+1;
+    if(com2 === 1){
+        koeoowarai.load();
+        yaminoclick.style.backgroundColor = '#000000';
+        yaminoclick.style.opacity = '1.0';
+        yaminoclick.style.display = 'inline';
+        timerEris = setInterval(function(){
+            fpse++;
+            switch(fpse){
+                case 1:
+                koeoowarai.play();
+                erishitarea.style.display = 'inline';
+                e1.style.display = 'inline';
+                yaminoclick.style.opacity = '0.8';
+                break;
+                case 2:
+                yaminoclick.style.opacity = '0.6';
+                break;
+                case 3:
+                yaminoclick.style.opacity = '0.4';
+                break;
+                case 4:
+                yaminoclick.style.opacity = '0.2';
+                break;
+                case 5:
+                yaminoclick.style.opacity = '0.0';
+                break;
+                case 17:
+                erishitarea.style.display = 'none';
+                break;
+                case 29:
+                gameover.style.display = 'inline';
+                gameover.style.opacity = '0.2';
+                body.style.backgroundColor = '#330000';
+                break;
+                case 30:
+                gameover.style.opacity = '0.4';
+                body.style.backgroundColor = '#660000';
+                break;
+                case 31:
+                gameover.style.opacity = '0.6';
+                body.style.backgroundColor = '#990000';
+                break;
+                case 32:
+                gameover.style.opacity = '0.8';
+                body.style.backgroundColor = '#cc0000';
+                break;
+                case 33:
+                gameover.style.opacity = '1.0';
+                body.style.backgroundColor = '#ff0000';
+                clearInterval(timerEris);
+                break;
+            }
+        },60);
+    }
+}
+//&#12456;&#12522;&#12473;&#25731;&#30772;
+erishitarea.addEventListener('mouseover',function(){erishitarea.style.cursor = 'pointer';});
+erishitarea.addEventListener('click',function(){
+    seshot.load();
+    seshot.play();
+    koeoowarai.pause();
+    fpsed = 0;
+    erishitarea.style.display = 'none';
+    clearInterval(timerEris);
+    e1.style.display = 'none';
+    e2.style.display = 'inline';
+    yaminoclick.style.display = 'none';
+    yaminoclick.style.backgroundColor = '#ff0000';
+    yaminoclick.style.opacity = '0.0';
+    let timerErisBreak = setInterval(function(){
+        fpsed++;
+        switch(fpsed){
+            case 1:
+            e2.style.display = 'none';
+            e3.style.display = 'inline';
+            break;
+            case 2:
+            e3.style.display = 'none';
+            clearInterval(timerErisBreak);
+            break;
+        }
+    },80);
+});
+
+/*&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#38343;&#35342;&#12385;&#29242;&#38306;&#36899;&#12398;&#20966;&#29702;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;*/
+//&#12521;&#12531;&#12480;&#12512;&#20986;&#29694;
+function yamigApper(){
+    fps0 = 0;
+    com = Math.floor(Math.random()*2)+1;
+    if(com === 1){
+        yaminoclick.style.display = 'inline';
+        timerId0 = setInterval(function(){
+            fps0++;
+            switch(fps0){
+                case 1:
+                ghitarea.style.display = 'inline';
+                g1.style.display = 'inline';
+                break;
+                case 2:
+                g1.style.display = 'none';
+                g2.style.display = 'inline';
+                break;
+                case 3:
+                g2.style.display = 'none';
+                g3.style.display = 'inline';
+                break;
+                case 4:
+                g3.style.display = 'none';
+                g4.style.display = 'inline';
+                break;
+                case 5:
+                g4.style.display = 'none';
+                g5.style.display = 'inline';
+                break;
+                case 6:
+                g5.style.display = 'none';
+                g6.style.display = 'inline';
+                break;
+                case 7:
+                g6.style.display = 'none';
+                g7.style.display = 'inline';
+                break;
+                case 8:
+                g7.style.display = 'none';
+                g8.style.display = 'inline';
+                break;
+                case 9:
+                g8.style.display = 'none';
+                g9.style.display = 'inline';
+                break;
+                case 10:
+                g9.style.display = 'none';
+                g10.style.display = 'inline';
+                break;
+                case 11:
+                g10.style.display = 'none';
+                g11.style.display = 'inline';
+                break;
+                case 12:
+                g11.style.display = 'none';
+                g12.style.display = 'inline';
+                break;
+                case 13:
+                g12.style.display = 'none';
+                g13.style.display = 'inline';
+                break;
+                case 14:
+                koeyamig.load();
+                koeyamig.play();
+                ghitarea.style.display = 'none';
+                g13.style.display = 'none';
+                g14.style.display = 'inline';
+                break;
+                case 15:
+                g14.style.display = 'none';
+                g15.style.display = 'inline';
+                break;
+                case 16:
+                g15.style.display = 'none';
+                g16.style.display = 'inline';
+                yaminoclick.style.opacity = '0.5';
+                break;
+                case 17:
+                yaminoclick.style.opacity = '0.0';
+                break;
+                case 40:
+                gameover.style.display = 'inline';
+                gameover.style.opacity = '0.2';
+                body.style.backgroundColor = '#330000';
+                break;
+                case 41:
+                gameover.style.opacity = '0.4';
+                body.style.backgroundColor = '#660000';
+                break;
+                case 42:
+                gameover.style.opacity = '0.6';
+                body.style.backgroundColor = '#990000';
+                break;
+                case 43:
+                gameover.style.opacity = '0.8';
+                body.style.backgroundColor = '#cc0000';
+                break;
+                case 44:
+                gameover.style.opacity = '1.0';
+                body.style.backgroundColor = '#ff0000';
+                clearInterval(timerId0);
+                break;
+            }
+        },60);
+    }
+}
+//&#38343;&#35342;&#12385;&#29242;&#25731;&#30772;
+ghitarea.addEventListener('mouseover',function(){ghitarea.style.cursor = 'pointer';});
+ghitarea.addEventListener('click',function(){
+    seshot.load();
+    seshot.play();
+    fpsd = 0;
+    ghitarea.style.display = 'none';
+    clearInterval(timerId0);
+    g1.style.display = 'none';
+    g2.style.display = 'none';
+    g3.style.display = 'none';
+    g4.style.display = 'none';
+    g5.style.display = 'none';
+    g6.style.display = 'none';
+    g7.style.display = 'none';
+    g8.style.display = 'none';
+    g9.style.display = 'none';
+    g10.style.display = 'none';
+    g11.style.display = 'none';
+    g12.style.display = 'none';
+    g13.style.display = 'none';
+    g14.style.display = 'none';
+    g15.style.display = 'none';
+    g16.style.display = 'none';
+    die1.style.display = 'inline';
+    let timerIdd = setInterval(function(){
+        fpsd++;
+        switch(fpsd){
+            case 1:
+            die1.style.display = 'none';
+            die2.style.display = 'inline';
+            break;
+            case 2:
+            die2.style.display = 'none';
+            yaminoclick.style.display = 'none';
+            clearInterval(timerIdd);
+        }
+    },80);
+});
+/*&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#12510;&#12483;&#12503;&#31227;&#21205;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;&#9632;*/
+y1.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y1.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y1.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y1.addEventListener('mouseout',function(){y1.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y1.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y1.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId1 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps1++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps1 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y2.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '39px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '26px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId1);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y2.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y2.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y2.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y2.addEventListener('mouseout',function(){y2.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y2.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y2.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId2 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps2++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps2 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y3.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '39px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '39px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId2);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+//&#9733;&#9733;&#9733;&#26354;&#12364;&#12427;&#9733;&#9733;&#9733;
+y3.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y3.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y3.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y3.addEventListener('mouseout',function(){y3.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y3.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y3.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    semagaru.load();
+    semagaru.play();
+    let timerId3 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps3++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps3 === 10){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y4.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '39px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '39px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamieAppear();
+            clearInterval(timerId3);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y4.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y4.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y4.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y4.addEventListener('mouseout',function(){y4.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y4.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y4.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId4 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps4++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps4 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y5.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '26px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '39px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId4);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y5.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y5.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y5.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y5.addEventListener('mouseout',function(){y5.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y5.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y5.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId5 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps5++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps5 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y6.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '13px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '39px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId5);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+//&#9733;&#9733;&#9733;&#26354;&#12364;&#12427;&#9733;&#9733;&#9733;
+y6.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y6.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y6.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y6.addEventListener('mouseout',function(){y6.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y6.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y6.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    semagaru.load();
+    semagaru.play();
+    let timerId6 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps6++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps6 === 10){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y7.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '13px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '39px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamieAppear();
+            clearInterval(timerId6);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y7.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y7.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y7.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y7.addEventListener('mouseout',function(){y7.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y7.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y7.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId7 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps7++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps7 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y8.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '13px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '52px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId7);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y8.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y8.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y8.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y8.addEventListener('mouseout',function(){y8.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y8.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y8.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId8 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps8++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps8 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y9.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '13px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '65px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId8);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+//&#9733;&#9733;&#9733;&#26354;&#12364;&#12427;&#9733;&#9733;&#9733;
+y9.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y9.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y9.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y9.addEventListener('mouseout',function(){y9.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y9.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y9.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    semagaru.load();
+    semagaru.play();
+    let timerId9 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps9++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps9 === 10){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y10.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '13px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '65px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamieAppear();
+            clearInterval(timerId9);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y10.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y10.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y10.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y10.addEventListener('mouseout',function(){y10.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y10.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y10.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId10 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps10++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps10 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y11.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '26px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '65px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId10);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y11.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y11.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y11.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y11.addEventListener('mouseout',function(){y11.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y11.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y11.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId11 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps11++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps11 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y12.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '39px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '65px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId11);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y12.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y12.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y12.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y12.addEventListener('mouseout',function(){y12.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y12.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y12.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId12 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps12++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps12 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y13.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '52px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '65px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId12);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+//&#9733;&#9733;&#9733;&#26354;&#12364;&#12427;&#9733;&#9733;&#9733;
+y13.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y13.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y13.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y13.addEventListener('mouseout',function(){y13.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y13.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y13.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    semagaru.load();
+    semagaru.play();
+    let timerId13 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps13++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps13 === 10){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y14.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '52px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '65px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamieAppear();
+            clearInterval(timerId13);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y14.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y14.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y14.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y14.addEventListener('mouseout',function(){y14.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y14.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y14.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId14 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps14++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps14 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y15.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '52px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '78px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId14);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y15.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y15.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y15.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y15.addEventListener('mouseout',function(){y15.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y15.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y15.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId15 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps15++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps15 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y16.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '52px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '91px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId15);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+//&#9733;&#9733;&#9733;&#26354;&#12364;&#12427;&#9733;&#9733;&#9733;
+y16.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y16.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y16.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y16.addEventListener('mouseout',function(){y16.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y16.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y16.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    semagaru.load();
+    semagaru.play();
+    let timerId16 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps16++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps16 === 10){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y17.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '52px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '91px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamieAppear();
+            clearInterval(timerId16);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y17.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y17.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y17.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y17.addEventListener('mouseout',function(){y17.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y17.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y17.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId17 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps17++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps17 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y18.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '39px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '91px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId17);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y18.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y18.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y18.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y18.addEventListener('mouseout',function(){y18.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y18.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y18.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId18 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps18++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps18 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y19.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '26px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '91px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId18);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y19.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y19.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y19.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y19.addEventListener('mouseout',function(){y19.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y19.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y19.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId19 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps19++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps19 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y20.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '13px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '91px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId19);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+//&#9733;&#9733;&#9733;&#26354;&#12364;&#12427;&#9733;&#9733;&#9733;
+y20.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y20.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y20.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y20.addEventListener('mouseout',function(){y20.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y20.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y20.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    semagaru.load();
+    semagaru.play();
+    let timerId20 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps20++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps20 === 10){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y21.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '13px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '91px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamieAppear();
+            clearInterval(timerId20);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y21.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y21.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y21.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y21.addEventListener('mouseout',function(){y21.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y21.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y21.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId21 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps21++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps21 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y22.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '13px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '104px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId21);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y22.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y22.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y22.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y22.addEventListener('mouseout',function(){y22.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y22.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y22.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId22 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps22++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps22 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y23.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '13px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '117px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId22);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+//&#9733;&#9733;&#9733;&#26354;&#12364;&#12427;&#9733;&#9733;&#9733;
+y23.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y23.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y23.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y23.addEventListener('mouseout',function(){y23.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y23.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y23.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    semagaru.load();
+    semagaru.play();
+    let timerId23 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps23++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps23 === 10){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y24.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '13px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '117px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamieAppear();
+            clearInterval(timerId23);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y24.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y24.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y24.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y24.addEventListener('mouseout',function(){y24.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y24.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y24.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId24 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps24++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps24 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y25.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '26px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '117px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId24);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+y25.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y25.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y25.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y25.addEventListener('mouseout',function(){y25.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y25.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y25.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    sewalk.load();
+    sewalk.play();
+    let timerId25 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps25++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps25 === 15){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            y26.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '39px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '117px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            yamigApper();//&#9632;&#9632;&#9632;&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#28040;&#12377;
+            clearInterval(timerId25);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+//&#9733;&#9733;&#9733;&#26354;&#12364;&#12427;&#9733;&#9733;&#9733;
+y26.addEventListener('mouseover',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y26.style.cursor = 'pointer';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y26.style.opacity = '1.0';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+});
+y26.addEventListener('mouseout',function(){y26.style.opacity = '0.0';});//&#9632;&#9632;&#9632;2&#12388;&#22793;&#12360;&#12427;
+y26.addEventListener('click',function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    y26.style.display = 'none';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+    semagaru.load();
+    semagaru.play();
+    doorbure.style.display = 'inline';
+    let timerId26 = setInterval(function(){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        fps26++;//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        if(fps26 === 1){//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            doorbure.style.display = 'none';
+            nextdoor.style.display = 'inline';//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+            ichi.style.right = '39px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            ichi.style.bottom = '117px';//&#9632;&#9632;&#9632;px&#12434;&#27425;&#12398;&#12510;&#12473;&#12398;&#20516;&#12395;&#12377;&#12427;(&#21491;&#25240;&#12539;&#24038;&#25240;&#26178;&#12399;&#19981;&#21205;)
+            clearInterval(timerId26);//&#9632;&#9632;&#9632;&#22793;&#12360;&#12427;
+        }
+    },80);
+});
+
+nextdoor.addEventListener('mouseover',function(){nextdoor.style.cursor = 'pointer';});
+nextdoor.addEventListener('click',function(){
+    location.href = 'kaidan1.html';
+});
+</script>
+<!--
+<script src="pjs/jquery-3.3.1.min.js"></script>
+<script src="pjs/.js"></script>
+-->
+</body>
+</html>
